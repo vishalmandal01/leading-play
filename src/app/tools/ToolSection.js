@@ -2,8 +2,11 @@ import React from "react";
 import ProgressBar from "./ProgressBar";
 import Image from "next/image";
 import Link from "next/link";
+import { getGameStats, updateGameStats } from "../stores/Game";
 
 export default function ToolSection() {
+  const { moneyEarned } = getGameStats();
+  console.log(moneyEarned);
   return (
     <div className="flex flex-col items-center">
       <div className="mx-auto  w-32 h-32 bg-indigo-600 text-center rounded-full pt-10">
@@ -14,13 +17,20 @@ export default function ToolSection() {
       <ProgressBar />
       <div className="w-full  my-14">
         <h4 className="font-bold  text-5xl uppercase ">
-          days : <span className="text-3xl font-mono font-medium text-indigo-400">07</span>
+          days :{" "}
+          <span className="text-3xl font-mono font-medium text-indigo-400">
+            07
+          </span>
         </h4>
         <h4 className="font-normal font-mono text-2xl uppercase my-3">
-          Task completed : <span className="text-3xl font-medium text-indigo-400">07</span>
+          Task completed :{" "}
+          <span className="text-3xl font-medium text-indigo-400">07</span>
         </h4>
         <h4 className="font-normal font-mono text-2xl uppercase ">
-          money🤑: <span className="text-3xl font-medium text-indigo-400">$ 07</span>
+          money🤑:{" "}
+          <span className="text-3xl font-medium text-indigo-400">
+            $ 07 {moneyEarned}
+          </span>
         </h4>
       </div>
       {/* BUTTON  */}

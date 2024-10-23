@@ -22,12 +22,11 @@ export default function SideBar({ handleSideBar, openSidebar }) {
         <div className="flex flex-col p-5">
           <div className=" flex justify-end">
             <CrossIcon
-              className=" cursor-pointer scale-90 hover:scale-100"
+              className=" cursor-pointer scale-90 text-white  hover:scale-100"
               onClick={handleSideBar}
             />
           </div>
           <ToolSection />
-         
         </div>
       </section>
     </main>

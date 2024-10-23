@@ -1,10 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import HomeDisplay from "./HomeDisplay";
-import InstagramScreen from "./InstagramScreen";
-import CallScreen from "./CallScreen";
-import MessageScreen from "./MessageScreen";
-import SettingScreen from "./SettingScreen";
+import InstagramScreen from "./application/instagram/InstagramScreen";
+import MessageScreen from "./application/MessageScreen";
+import SettingScreen from "./application/SettingScreen";
+import CallScreen from "./application/CallScreen";
+import EscortScreen from "./application/escort/EscortScreen";
 
 export default function Display() {
   const [backButton, setBackButton] = useState(false);
@@ -12,12 +13,14 @@ export default function Display() {
   const [callClick, setCallClick] = useState(false);
   const [settingClick, setSettingClick] = useState(false);
   const [messageClick, setMessageClick] = useState(false);
+  const [escortClick, setEscortClick] = useState(false);
   const handleBackButton = () => {
     setBackButton(!backButton);
     setInstagramClick(false);
     setCallClick(false);
     setSettingClick(false);
     setMessageClick(false);
+    setEscortClick(false);
   };
   return (
     <>
@@ -28,7 +31,7 @@ export default function Display() {
           setCallClick={setCallClick}
           setSettingClick={setSettingClick}
           setMessageClick={setMessageClick}
-         
+          setEscortClick={setEscortClick}
         />
       )}
 
@@ -36,6 +39,7 @@ export default function Display() {
       {callClick && <CallScreen />}
       {settingClick && <SettingScreen />}
       {messageClick && <MessageScreen />}
+      {escortClick && <EscortScreen />}
 
       {/* MOBILE BUTTON  */}
       <div className=" flex gap-11 absolute  text-center bottom-[3.5%]  ">

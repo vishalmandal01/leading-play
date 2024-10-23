@@ -6,7 +6,7 @@ import Link from "next/link";
 import SideBar from "./SideBar";
 import { BackWardIcon } from "../../public/SVG/Backward";
 import { usePathname } from "next/navigation";
-import ButtonGradient from "@/components/ButtonGradient";
+import ButtonGradient from "@/Components/ButtonGradient";
 
 export default function Header() {
   const pathname = usePathname();
@@ -28,7 +28,7 @@ export default function Header() {
               fill="currentColor"
               height="1.8em"
               width="1.8em"
-              className="sticky top-5 animate-spin cursor-pointer hover:text-indigo-600"
+              className="sticky top-5 animate-spin cursor-pointer text-white hover:text-indigo-600"
               onClick={handleSideBar}
             >
               <path d="M5 8a4 4 0 014 4 4 4 0 01-4 4 4 4 0 01-4-4 4 4 0 014-4m7-7a4 4 0 014 4 4 4 0 01-4 4 4 4 0 01-4-4 4 4 0 014-4m0 14a4 4 0 014 4 4 4 0 01-4 4 4 4 0 01-4-4 4 4 0 014-4m7-7a4 4 0 014 4 4 4 0 01-4 4 4 4 0 01-4-4 4 4 0 014-4m-7-5a2 2 0 00-2 2 2 2 0 002 2 2 2 0 002-2 2 2 0 00-2-2m-7 7a2 2 0 00-2 2 2 2 0 002 2 2 2 0 002-2 2 2 0 00-2-2m14 0a2 2 0 00-2 2 2 2 0 002 2 2 2 0 002-2 2 2 0 00-2-2z" />
@@ -37,19 +37,19 @@ export default function Header() {
             <SideBar handleSideBar={handleSideBar} openSidebar={openSidebar} />
             {pathname !== "/mobile" && (
               <Link href={"/mobile"}>
-                <PhoneIcon className="hover:text-indigo-600 cursor-pointer scale-75 hover:scale-100 " />
+                <PhoneIcon className="hover:text-indigo-600 text-white cursor-pointer scale-75 hover:scale-100 " />
               </Link>
             )}
             {pathname != "/" ? (
               <Link href={"/"}>
-                <BackWardIcon className="hover:text-indigo-600 cursor-pointer scale-75 hover:scale-100" />
+                <BackWardIcon className="hover:text-indigo-600 text-white cursor-pointer scale-75 hover:scale-100" />
               </Link>
             ) : null}
           </div>
 
           <div>
             <Link href="/help">
-              <HelpIcon className="hover:text-indigo-600 cursor-pointer scale-90 hover:scale-100" />
+              <HelpIcon className="hover:text-indigo-600 text-white cursor-pointer scale-90 hover:scale-100" />
             </Link>
           </div>
         </>

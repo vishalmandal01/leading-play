@@ -1,6 +1,6 @@
-import Button from "@/components/Button";
-import InputField from "@/components/InputField";
-import InputPassword from "@/components/InputPassword";
+import Button from "@/Components/Button";
+import InputField from "@/Components/InputField";
+import InputPassword from "@/Components/InputPassword";
 import Link from "next/link";
 import React from "react";
 

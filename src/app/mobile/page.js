@@ -5,7 +5,6 @@ import Display from "./display/Display";
 export default function page() {
   return (
     <div className="flex flex-col justify-center items-center relative  h-[100%] ">
-   
       <Image
         src={"/image/mobileBody.png"}
         height={700}
@@ -14,8 +13,8 @@ export default function page() {
         className="w-[300px] h-max  "
       />
       {/* MOBILE DISPLAY  */}
-     
-     <Display />
+
+      <Display />
     </div>
   );
 }
