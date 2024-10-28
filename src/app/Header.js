@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { HelpIcon, PhoneIcon } from "../../public/SVG/CommonIcons";
 import Link from "next/link";
 import SideBar from "./SideBar";
 import { BackWardIcon } from "../../public/SVG/Backward";
 import { usePathname } from "next/navigation";
-import ButtonGradient from "@/Components/ButtonGradient";
 
 export default function Header() {
   const pathname = usePathname();
