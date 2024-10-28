@@ -1,15 +1,8 @@
 "use client";
 
-// const WarningModal = ({ onClose }) => {
-
-//   );
-// };
-
-// export default WarningModal;
-
 import React, { useEffect } from "react";
 
-export default function WarningModal({ onClose }) {
+export default function WarningModals({ onClose }) {
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === "Escape") {

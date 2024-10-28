@@ -1,7 +1,6 @@
 "use client";
+import WarningModals from "../components/WarningModals";
 import ButtonGradient from "../components/ButtonGradient";
-// import WarningModal from "@/components/WarningModal";
-import WarningModal from "../components/WarningModal";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
@@ -22,7 +21,7 @@ export default function HomePage() {
 
   return (
     <div className="pb-16">
-      {showWarning && <WarningModal onClose={handleClose} />}
+      {showWarning && <WarningModals onClose={handleClose} />}
 
       <>
         <div className="bg-gradient-to-r from-indigo-500 to-pink-600 flex justify-center items-center rotate-1 ">
