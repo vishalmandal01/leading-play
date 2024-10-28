@@ -1,6 +1,6 @@
 "use client";
-import ButtonGradient from "@/Components/ButtonGradient";
-import WarningModal from "@/Components/WarningModal";
+import ButtonGradient from "@/components/ButtonGradient";
+import WarningModal from "@/components/WarningModal";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";

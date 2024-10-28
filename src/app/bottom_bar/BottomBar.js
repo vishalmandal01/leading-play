@@ -1,5 +1,5 @@
 "use client";
-import ScrollButton from "@/Components/ScrollButton";
+import ScrollButton from "@/components/ScrollButton";
 import { usePathname } from "next/navigation";
 import React from "react";
 
