@@ -1,27 +1,30 @@
 "use client";
-import BorderButton from "@/Components/BorderButton";
-import Button from "@/Components/Button";
 import ButtonGradient from "@/Components/ButtonGradient";
 import WarningModal from "@/Components/WarningModal";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function HomePage() {
-  const [showWarning, setShowWarning] = useState(true);
+  const [showWarning, setShowWarning] = useState(false);
+
+  useEffect(() => {
+    // Check localStorage only in the browser
+    const warningAcknowledged = localStorage.getItem("warningAcknowledged");
+    setShowWarning(!warningAcknowledged);
+  }, []);
 
   const handleClose = () => {
     setShowWarning(false);
     localStorage.setItem("warningAcknowledged", "true");
   };
+
   return (
     <div className="pb-16">
-      {showWarning && !localStorage.getItem("warningAcknowledged") && (
-        <WarningModal onClose={handleClose} />
-      )}
+      {showWarning && <WarningModal onClose={handleClose} />}
 
       <>
-        <div className="bg-gradient-to-r from-indigo-500 to-pink-600  flex justify-center items-center rotate-1 ">
+        <div className="bg-gradient-to-r from-indigo-500 to-pink-600 flex justify-center items-center rotate-1 ">
           <div className="w-full bg-[#060c21] flex flex-col gap-2 justify-center items-center -rotate-1 p-3 lg:p-6 ">
             <h3 className="">
               Hello friends, I am shydevloper, welcome to Leadplyer, One day you
@@ -49,7 +52,6 @@ export default function HomePage() {
                 <div className="box">
                   <div className="content w-full flex ">
                     <div className="tape"></div>
-                    {/* <h2>{game.id}</h2> */}
                     <div className="flex gap-2 lg:gap-4 justify-center">
                       <Image
                         alt={`user ${i}`}
@@ -61,7 +63,6 @@ export default function HomePage() {
                       <div>
                         <h3>{game?.title}</h3>
                         <p>{game.message}</p>
-                        {/* <a href="#">Read more...</a> */}
                       </div>
                     </div>
                   </div>
@@ -83,13 +84,8 @@ export default function HomePage() {
           ⚪ Do you want to participate in this game?
         </p>
 
-        {/* <Button title={"Manvi"} />
-        <ButtonGradient title={"Parisha"} /> */}
-
-        {/* <BorderButton title={"No"} /> */}
         <ButtonGradient key={() => (window.location.href = "/")} title={"No"} />
         <Link href={"/apartment"}>
-          {" "}
           <ButtonGradient title={"Yes"} />
         </Link>
       </>

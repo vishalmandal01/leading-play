@@ -28,7 +28,7 @@ const Post = ({ image, caption, user, userImg }) => {
         </div>
         <p className="text-indigo-700">⠇</p>
       </div>
-      <Image src={image} width={275} height={275} />
+      <Image src={image} alt="image" width={275} height={275} />
       <div className="p-1">
         <p className="text-[12px] text-black truncate">{caption}</p>
       </div>
