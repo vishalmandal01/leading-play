@@ -9,6 +9,7 @@
     }
   }
   
+
 /* width */
 ::-webkit-scrollbar {
   width: 8px;
@@ -274,32 +275,3 @@
 }
 /* IMAGE CARD HOVER ANIMATION  */
 
-
-/* SLIDING VIEW ANIMATION  */
-
-.animate-left {
-  animation: slide-left 0.5s;
-}
-
-.animate-right {
-  animation: slide-right 0.5s;
-}
-
-@keyframes slide-left {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes slide-right {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(100%);
-  }
-}
-/* SLIDING VIEW ANIMATION  */

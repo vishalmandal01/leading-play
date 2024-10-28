@@ -1,89 +1,118 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import React, { useState } from "react";
 
 export default function ApartmentScreen() {
-  const [isView, setIsView] = useState("back");
-  const [direction, setDirection] = useState("left");
-
-  const data = apartmentList.find((item) => item.title === isView);
-
-  const handleView = (view) => {
-    if (view === "back") {
-      setDirection("right");
-    } else {
-      setDirection("left");
-    }
-    setIsView(view);
+  const [showGame, setShowGame] = useState("Home");
+  const handlePlace = (id) => {
+    setShowGame(id);
   };
-
+  const filteredShow = apartmentList.filter((item) => item.title === showGame);
+  // console.log("filteredShow ", filteredShow);
   return (
-    <>
-      {data && (
-        <div
-          className={`${
-            direction === "left"
-              ? "animate-slide-in-left"
-              : "animate-slide-in-right"
-          }`}
-        >
-          <ApartmentViewer
-            img={data.img}
-            seen={data.seen}
-            data={data.show}
-            onClick={(title) => handleView(title)}
-          />
-        </div>
-      )}
-    </>
-  );
-}
-
-function ApartmentViewer({ img, seen, data, onClick }) {
-  return (
-    <div className="flex flex-col items-center mt-5 lg:mt-0">
-      <Image alt={img} src={img} height={500} width={500} />
-      <p className="text-center mx-auto my-4 lg:text-[32px]">{seen}</p>
-
-      <div className="list flex items-center justify-center  py-5">
-        {data.map((imgs, i) => {
-          return (
-            <div
-              key={i}
-              className="item text-center border-white p-1 border-2"
-              onClick={() => onClick(imgs.title)}
-            >
-              <Image src={imgs?.img} alt={imgs?.img} height={100} width={80} />
-              <p>{imgs.title}</p>
+    <div className="relative h-full">
+      {filteredShow.map((apartment, i) => {
+        return (
+          <div key={i} className=" pt-6  px-3">
+            <div className=" pb-[200px]">
+              <Image
+                alt={apartment.title}
+                src={apartment.img}
+                height={900}
+                width={900}
+                className=" mx-auto "
+                style={{ height: apartment.height, width: apartment.width }}
+                // className={` object-cove`}
+              />
+              <p className="text-center mx-auto my-4 lg:text-[22px]">
+                {apartment.seen}
+              </p>
             </div>
-          );
-        })}
-      </div>
+
+            <div className="flex justify-center w-full items-center">
+              <div className="list flex items-center justify-center fixed bottom-3 ">
+                {apartment?.show?.map((imgs, i) => {
+                  return imgs?.link ? (
+                    <Link
+                      key={i}
+                      className="item text-center border-indigo-600/20 pb-1 m-0.5 border-2 cursor-pointer"
+                      href={imgs?.link}
+                    >
+                      <Image
+                        src={imgs?.img}
+                        alt={imgs?.img}
+                        height={1000}
+                        width={1000}
+                        className="w-[120px] h-[100px]"
+                      />
+                      <p className="text-[12px] py-1">{imgs.title}</p>
+                    </Link>
+                  ) : (
+                    <div
+                      key={i}
+                      className="item text-center border-indigo-600/20 pb-1 m-0.5 border-2 cursor-pointer"
+                      onClick={() => handlePlace(imgs.title)}
+                    >
+                      <Image
+                        src={imgs?.img}
+                        alt={imgs?.img}
+                        height={1000}
+                        width={1000}
+                        className="w-[120px] h-[100px]"
+                      />
+                      <p className="text-[12px] py-1">{imgs.title}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }
 
 const apartmentList = [
   {
-    title: "back",
-    img: "/image/appIcon/instagram.png",
-    seen: "This is your  . In the sense you live here and sleep here. The Apartment belongs to your landlord after your father passed away. There are not the best conditions to live here.",
+    title: "Home",
+    img: "/image/home/apartment.png",
+    height: "362px",
+    width: "390px",
+    seen: "This is your home . In the sense you live here and sleep here. The Apartment belongs to your landlord after your father passed away. There are not the best conditions to live here.",
     show: [
-      { title: "bedRoom", img: "/image/appIcon/instagram.png" },
-      { title: "bathRoom", img: "/image/appIcon/instagram.png" },
+      { title: "Bed Room", img: "/image/home/BadRoom.png" },
+      { title: "Bath Room", img: "/image/home/Bathroom.png" },
       { title: "road", img: "/image/appIcon/instagram.png" },
     ],
   },
   {
-    title: "bedRoom",
-    img: "/image/appIcon/instagram.png",
-    seen: "You are in your room. The place gives you the creeps, maybe a general overhaul would be a good idea?",
+    title: "Bed Room",
+    height: "400px",
+    width: "700px",
+    img: "/image/home/BadRoom.png",
+    seen: "This is your Bed Room. In the sense you live here and sleep here. The Apartment belongs to your landlord after your father passed away. There are not the best conditions to live here.",
     show: [
-      { title: "bathRoom", img: "/image/appIcon/instagram.png" },
-      { title: "pc", img: "/image/appIcon/instagram.png" },
+      { title: "Home", img: "/image/home/apartment.png" },
+      { title: "Bath Room", img: "/image/home/Bathroom.png" },
       { title: "sleep", img: "/image/appIcon/instagram.png" },
       { title: "back", img: "/image/appIcon/instagram.png" },
+    ],
+  },
+  {
+    title: "Bath Room",
+    height: "400px",
+    width: "700px",
+    img: "/image/home/Bathroom.png",
+    seen: "This is your Bed Room. In the sense you live here and sleep here. The Apartment belongs to your landlord after your father passed away. There are not the best conditions to live here.",
+    show: [
+      { title: "Home", img: "/image/home/apartment.png" },
+      { title: "Bed Room", img: "/image/home/BadRoom.png" },
+      { title: "pc", img: "/image/appIcon/instagram.png" },
+      { title: "sleep", img: "/image/appIcon/instagram.png" },
+      { link: "/", title: "go link", img: "/image/appIcon/instagram.png" },
     ],
   },
 ];

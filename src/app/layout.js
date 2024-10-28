@@ -15,12 +15,18 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="relative  max-w-[1920px]">
-          <div className="sticky lg:top-10 top-5  right-0 z-30">
+        {/* <div className="relative  max-w-[1565px] mx-auto">
+          <div className="sticky w-full lg:top-10 top-5 right-0 z-30">
             <Header />
           </div>
-          <div className="lg:px-10 p-2 ">{children}</div>
-          {/* <BottomBar /> */}
+          <div className="">{children}</div>
+          <BottomBar />
+        </div> */}
+
+        <div className="max-w-[1565px] mx-auto relative">
+          <Header />
+
+          {children}
         </div>
       </body>
     </html>
