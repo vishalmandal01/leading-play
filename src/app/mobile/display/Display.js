@@ -42,7 +42,7 @@ export default function Display() {
       {escortClick && <EscortScreen />}
 
       {/* MOBILE BUTTON  */}
-      <div className=" flex gap-11 absolute  text-center bottom-[3.5%]  ">
+      <div className=" flex gap-12 absolute  text-center bottom-[3.5%]  ">
         <div
           onClick={handleBackButton}
           className="bg-black/5 w-[30px] cursor-pointer text-transparent rounded-[5px]"
@@ -51,7 +51,7 @@ export default function Display() {
         </div>
         <div
           onClick={handleBackButton}
-          className="bg-black/5 w-[60px] cursor-pointer text-transparent rounded-[5px]"
+          className="bg-black/5 w-[68px] cursor-pointer text-transparent rounded-[5px]"
         >
           h
         </div>

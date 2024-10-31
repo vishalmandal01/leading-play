@@ -17,7 +17,7 @@ export default function HomeDisplay({
 }) {
   return (
     <div
-      className="bg-slate-400 flex flex-col justify-between w-[275px] h-[483px] absolute mt-1.5"
+      className=" flex flex-col justify-between w-[313px] h-[550px] absolute mt-1.5 bg-slate-400"
       style={{
         backgroundImage: `url('https://wallpaperaccess.com/full/16711.png')`,
         backgroundRepeat: "no-repeat",

@@ -28,7 +28,7 @@ const Post = ({ image, caption, user, userImg }) => {
         </div>
         <p className="text-indigo-700">⠇</p>
       </div>
-      <Image src={image} alt="image" width={275} height={275} />
+      <Image src={image} alt="image" width={313} height={550} />
       <div className="p-1">
         <p className="text-[12px] text-black truncate">{caption}</p>
       </div>
@@ -50,7 +50,7 @@ const InstagramFeed = () => (
 );
 export default function InstagramScreen() {
   return (
-    <div className="bg-white flex flex-col justify-between w-[275px] h-[483px] absolute mt-1.5 overflow-scroll scroll-bar-hide">
+    <div className="bg-white flex flex-col justify-between  w-[313px] h-[550px] absolute mt-1.5 overflow-scroll scroll-bar-hide">
       <div>Instagram</div>
       <InstagramFeed />
     </div>

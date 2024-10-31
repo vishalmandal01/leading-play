@@ -41,7 +41,7 @@ export default function EscortScreen() {
   }
 
   return (
-    <div className="bg-white px-2 flex flex-col  w-[275px] h-[483px] absolute mt-1.5 overflow-scroll scroll-bar-hide">
+    <div className="bg-white px-2 flex flex-col w-[313px] h-[550px] absolute mt-1.5 overflow-scroll scroll-bar-hide">
       <div className="flex justify-between items-center py-2 ">
         <h3 className="font-bold text-[14px]">Hello, Welcome 👋</h3>
         <div className="h-[35px] w-[35px] bg-indigo-600 rounded-full "></div>
